@@ -41,7 +41,9 @@
 		
 		function prepararEditar(codigo){
 			//alert("editar "+cod);
+			if(codigo!=0){
 			window.location.replace('gerenciarPainel.jsp?codigo='+codigo);
+			}
 		}
 		
 		</script>

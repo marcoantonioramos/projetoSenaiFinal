@@ -18,7 +18,7 @@
 		var dados = "";
 		dados += "codigo="+document.getElementById("codigo").value;
 		dados += "&nome="+document.getElementById("nome").value;
-		dados += "&nascimento="+document.getElementById("nascimento").value;		
+		/*dados += "&nascimento="+document.getElementById("nascimento").value;		
 		dados += "&sexo="+document.getElementById("sexo").value;
 		dados += "&telefone="+document.getElementById("telefone").value;
 		dados += "&email="+document.getElementById("email").value;
@@ -30,7 +30,7 @@
 		dados += "&profissao="+document.getElementById("profissao").value;
 		dados += "&escolaridade="+document.getElementById("escolaridade").value;
 		dados += "&estadoCivil="+document.getElementById("estadoCivil").value;
-		dados += "&conjuge="+document.getElementById("conjuge").value;
+		dados += "&conjuge="+document.getElementById("conjuge").value;*/
 		return dados;
 	}
 		function gravar() {
@@ -47,9 +47,12 @@
 			       }
 			    }
 			};
+			if(document.getElementById("codigo").value!=0){
 			xhttp.open("GET", "servletPainel?"+dadosForm(), true);
 			xhttp.send();
-			
+			} else {
+				alert("insira um código diferente de zero");
+			}
 		}
 		
 		function apagar(){

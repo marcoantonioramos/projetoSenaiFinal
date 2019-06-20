@@ -26,7 +26,6 @@ public class Painel {
 	private String conjuge;
 
 	public Painel() {
-		setCodigo(0);
 		setNome("");
 		setNascimento("");
 		setSexo("");
@@ -192,28 +191,30 @@ public class Painel {
 		Connection conexao = new ConectarJDBC().getConectar();
 
 		if (conexao != null) {
-			String sql = "update painel set	codigo = ?, nome = ?, nascimento = ?, sexo = ? ,"
-					+ "telefone = ?, email = ?,	cep = ?, endereco = ?, bairro = ? , cidade = ? ,"
-					+ " uf = ? , profissao = ?,	escolaridade = ?, estado_civil = ?,"
-					+ " conjuge = ?  where cod = ? ";
+			String sql = "update painel set	codigo = ?, nome = ?  where cod = ? ";
+			
+//			, nascimento = ?, sexo = ? ,"
+//					+ "telefone = ?, email = ?,	cep = ?, endereco = ?, bairro = ? , cidade = ? ,"
+//					+ " uf = ? , profissao = ?,	escolaridade = ?, estado_civil = ?,"
+//					+ " conjuge = ?
 			
 			try {
 				PreparedStatement prepararSQL = conexao.prepareStatement(sql);
 				prepararSQL.setInt(1, codigo);
 				prepararSQL.setString(2, nome);
-				prepararSQL.setString(3, nascimento);
-				prepararSQL.setString(4, sexo);
-				prepararSQL.setString(5, telefone);
-				prepararSQL.setString(6, email);
-				prepararSQL.setString(7, cep);
-				prepararSQL.setString(8, endereco);
-				prepararSQL.setString(9, bairro);
-				prepararSQL.setString(10, cidade);
-				prepararSQL.setString(11, uf);
-				prepararSQL.setString(12, profissao);
-				prepararSQL.setString(13, escolaridade);
-				prepararSQL.setString(14, estadoCivil);
-				prepararSQL.setString(15, conjuge);
+//				prepararSQL.setString(3, nascimento);
+//				prepararSQL.setString(4, sexo);
+//				prepararSQL.setString(5, telefone);
+//				prepararSQL.setString(6, email);
+//				prepararSQL.setString(7, cep);
+//				prepararSQL.setString(8, endereco);
+//				prepararSQL.setString(9, bairro);
+//				prepararSQL.setString(10, cidade);
+//				prepararSQL.setString(11, uf);
+//				prepararSQL.setString(12, profissao);
+//				prepararSQL.setString(13, escolaridade);
+//				prepararSQL.setString(14, estadoCivil);
+//				prepararSQL.setString(15, conjuge);
 
 				prepararSQL.execute();
 				prepararSQL.close();
@@ -232,27 +233,31 @@ public class Painel {
 		Connection conexao = new ConectarJDBC().getConectar();
 
 		if (conexao != null) {
-			String sql = "insert into painel(codigo, nome, nascimento, sexo, telefone, email,"
-					+ "cep, endereco, bairro, cidade, uf, profissao, escolaridade, estadoCivil,"
-					+ "conjuge) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			String sql = "insert into painel(codigo, nome) values (?, ?)";
 			
+			//, nascimento, sexo, telefone, email,"
+			//+ "cep, endereco, bairro, cidade, uf, profissao, escolaridade, estado_civil,"
+			//+ "conjuge
+			//, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
+
+						
 			try {
 				PreparedStatement prepararSQL = conexao.prepareStatement(sql);
 				prepararSQL.setInt(1, codigo);
 				prepararSQL.setString(2, nome);
-				prepararSQL.setString(3, nascimento);
-				prepararSQL.setString(4, sexo);
-				prepararSQL.setString(5, telefone);
-				prepararSQL.setString(6, email);
-				prepararSQL.setString(7, cep);
-				prepararSQL.setString(8, endereco);
-				prepararSQL.setString(9, bairro);
-				prepararSQL.setString(10, cidade);
-				prepararSQL.setString(11, uf);
-				prepararSQL.setString(12, profissao);
-				prepararSQL.setString(13, escolaridade);
-				prepararSQL.setString(14, estadoCivil);
-				prepararSQL.setString(15, conjuge);
+//				prepararSQL.setString(3, nascimento);
+//				prepararSQL.setString(4, sexo);
+//				prepararSQL.setString(5, telefone);
+//				prepararSQL.setString(6, email);
+//				prepararSQL.setString(7, cep);
+//				prepararSQL.setString(8, endereco);
+//				prepararSQL.setString(9, bairro);
+//				prepararSQL.setString(10, cidade);
+//				prepararSQL.setString(11, uf);
+//				prepararSQL.setString(12, profissao);
+//				prepararSQL.setString(13, escolaridade);
+//				prepararSQL.setString(14, estadoCivil);
+//				prepararSQL.setString(15, conjuge);
 
 				prepararSQL.execute();
 				prepararSQL.close();
@@ -277,21 +282,21 @@ public class Painel {
 			while (rs.next()) {
 				Painel p = new Painel();
 				// o que esta entre aspas "nome_da_coluna_no_banco"
-				p.setCodigo(rs.getInt("codigo"));
+				p.setCodigo(Integer.parseInt(rs.getString("codigo")));
 				p.setNome(rs.getString("nome"));
-				p.setNascimento(rs.getString("nascimento"));
-				p.setSexo(rs.getString("sexo"));
-				p.setTelefone(rs.getString("telefone"));
-				p.setEmail(rs.getString("email"));
-				p.setCep(rs.getString("cep"));
-				p.setEndereco(rs.getString("endereco"));
-				p.setBairro(rs.getString("bairro"));
-				p.setCidade(rs.getString("cidade"));
-				p.setUf(rs.getString("uf"));
-				p.setProfissao(rs.getString("profissao"));
-				p.setEscolaridade(rs.getString("escolaridade"));
-				p.setEstadoCivil(rs.getString("estado_civil"));
-				p.setConjuge(rs.getString("conjuge"));
+//				p.setNascimento(rs.getString("nascimento"));
+//				p.setSexo(rs.getString("sexo"));
+//				p.setTelefone(rs.getString("telefone"));
+//				p.setEmail(rs.getString("email"));
+//				p.setCep(rs.getString("cep"));
+//				p.setEndereco(rs.getString("endereco"));
+//				p.setBairro(rs.getString("bairro"));
+//				p.setCidade(rs.getString("cidade"));
+//				p.setUf(rs.getString("uf"));
+//				p.setProfissao(rs.getString("profissao"));
+//				p.setEscolaridade(rs.getString("escolaridade"));
+//				p.setEstadoCivil(rs.getString("estado_civil"));
+//				p.setConjuge(rs.getString("conjuge"));
 				lsPainel.add(p);
 			}
 			ps.close();
@@ -313,24 +318,29 @@ public class Painel {
 			Painel p = new Painel();
 			while (rs.next()) {
 				// o que esta entre aspas "nome_da_coluna_no_banco"
-				p.setCodigo(rs.getInt("codigo"));
+				p.setCodigo(Integer.parseInt(rs.getString("codigo")));
 				p.setNome(rs.getString("nome"));
-				p.setNascimento(rs.getString("nascimento"));
-				p.setSexo(rs.getString("sexo"));
-				p.setTelefone(rs.getString("telefone"));
-				p.setEmail(rs.getString("email"));
-				p.setCep(rs.getString("cep"));
-				p.setEndereco(rs.getString("endereco"));
-				p.setBairro(rs.getString("bairro"));
-				p.setCidade(rs.getString("cidade"));
-				p.setUf(rs.getString("uf"));
-				p.setProfissao(rs.getString("profissao"));
-				p.setEscolaridade(rs.getString("escolaridade"));
-				p.setEstadoCivil(rs.getString("estado_civil"));
-				p.setConjuge(rs.getString("conjuge"));
+//				p.setNascimento(rs.getString("nascimento"));
+//				p.setSexo(rs.getString("sexo"));
+//				p.setTelefone(rs.getString("telefone"));
+//				p.setEmail(rs.getString("email"));
+//				p.setCep(rs.getString("cep"));
+//				p.setEndereco(rs.getString("endereco"));
+//				p.setBairro(rs.getString("bairro"));
+//				p.setCidade(rs.getString("cidade"));
+//				p.setUf(rs.getString("uf"));
+//				p.setProfissao(rs.getString("profissao"));
+//				p.setEscolaridade(rs.getString("escolaridade"));
+//				p.setEstadoCivil(rs.getString("estado_civil"));
+//				p.setConjuge(rs.getString("conjuge"));
 			}
 			ps.close();
 			conexao.close();
+			
+			if(p.codigo == 0) {
+				return null;
+			}
+			
 			return p;
 		} catch (Exception e) {
 
