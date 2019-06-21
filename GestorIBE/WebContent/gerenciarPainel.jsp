@@ -11,78 +11,7 @@
 <link rel="stylesheet" href="css/estilo.css">
 
 </head>
-<body>
-	<script type="text/javascript">
-	
-	function dadosForm() {
-		var dados = "";
-		dados += "codigo="+document.getElementById("codigo").value;
-		dados += "&nome="+document.getElementById("nome").value;
-		/*dados += "&nascimento="+document.getElementById("nascimento").value;		
-		dados += "&sexo="+document.getElementById("sexo").value;
-		dados += "&telefone="+document.getElementById("telefone").value;
-		dados += "&email="+document.getElementById("email").value;
-		dados += "&cep="+document.getElementById("cep").value;
-		dados += "&endereco="+document.getElementById("endereco").value;
-		dados += "&bairro="+document.getElementById("bairro").value;
-		dados += "&cidade="+document.getElementById("cidade").value;
-		dados += "&uf="+document.getElementById("uf").value;
-		dados += "&profissao="+document.getElementById("profissao").value;
-		dados += "&escolaridade="+document.getElementById("escolaridade").value;
-		dados += "&estadoCivil="+document.getElementById("estadoCivil").value;
-		dados += "&conjuge="+document.getElementById("conjuge").value;*/
-		return dados;
-	}
-		function gravar() {
-									
-			var xhttp = new XMLHttpRequest();
-			xhttp.onreadystatechange = function() {
-			    if (this.readyState == 4 && this.status == 200) {
-			       var msg = xhttp.responseText;
-			       document.getElementById("msg").innerHTML = msg;
-			       if(msg == "Gravado com sucesso"){
-			    	   document.getElementById("msg").className = "alert alert-info";
-			       }else{
-			    	   document.getElementById("msg").className = "alert alert-danger";
-			       }
-			    }
-			};
-			if(document.getElementById("codigo").value!=0){
-			xhttp.open("GET", "servletPainel?"+dadosForm(), true);
-			xhttp.send();
-			} else {
-				alert("insira um código diferente de zero");
-			}
-		}
-		
-		function apagar(){
-			if(confirm("Realmente deseja apagar esse registro??")){
-			var xhttp = new XMLHttpRequest();
-			xhttp.onreadystatechange = function() {
-			    if (this.readyState == 4 && this.status == 200) {
-			       var msg = xhttp.responseText;
-			       
-			       if(msg == "Gravado com sucesso"){
-			    	   document.getElementById("msg").className = "alert alert-info";
-			    	   document.getElementById("msg").innerHTML = "Informação apagada";
-			    	   document.getElementById("formulario").reset();
-			       }else{
-			    	   document.getElementById("msg").className = "alert alert-danger";
-			    	   document.getElementById("msg").innerHTML = "Erro ao apagar";
-			       }
-			    }
-			};
-			xhttp.open("GET", "servletPainel?"+dadosForm()+"&apagar", true);
-			xhttp.send();
-			}
-		}
-		
-		
-		function novo(){
-			window.location.replace('gerenciarPainel.jsp');
-		}
-	</script>
-
+<body onload="limpaCodigo()">
 
 	<%
 		// meu java rolar
@@ -112,9 +41,9 @@
 			<div id="msg"></div>
 			<div class="form-row">
 				<div class="form-group col-md-3">
-					<label for="codigo">Código:</label> <input type="number"
+					<label for="codigo">Código:</label> <input type="number" onkeyup="validaCodigo();"
 						class="form-control" id="codigo"
-						value="<%out.print(painel.getCodigo());%>" placeholder="Código"
+						value="<%out.print(painel.getCodigo());%>" placeholder="Insira um código"
 						name="codigo">
 				</div>
 				<div class="form-group col-md-6">
@@ -157,30 +86,40 @@
 						class="form-control" value="<%out.print(painel.getEmail());%>"
 						id="email" placeholder="E-mail">
 				</div>
+				
+				
+				
 				<div class="form-group col-md-3">
-					<label for="cep">CEP:</label> <input type="text"
-						class="form-control" value="<%out.print(painel.getCep());%>"
-						id="cep" placeholder="CEP">
-				</div>
-				<div class="form-group col-md-3">
-					<label for="endereco">Endereço:</label> <input type="text"
-						class="form-control" value="<%out.print(painel.getEndereco());%>"
-						id="endereco" placeholder="Endereço">
-				</div>
-				<div class="form-group col-md-3">
-					<label for="bairro">Bairro:</label> <input type="text"
-						class="form-control" value="<%out.print(painel.getBairro());%>"
-						id="bairro" placeholder="Bairro">
-				</div>
-				<div class="form-group col-md-3">
-					<label for="cidade">Cidade:</label> <input type="text"
-						class="form-control" value="<%out.print(painel.getCidade());%>"
-						id="cidade" placeholder="Cidade">
-				</div>
-				<div class="form-group col-md-3">
-					<label for="uf">UF:</label> <input type="text" class="form-control"
-						value="<%out.print(painel.getUf());%>" id="uf" placeholder="UF">
-				</div>
+					<label>Cep:</label>
+	        		<input class="form-control" value="<%out.print(painel.getCep());%>" name="cep" type="number" id="cep" placeholder="Insira apenas os números" onblur="pesquisacep(this.value);"/>
+	    		</div>
+	        	<div class="form-group col-md-5">
+			        <label>Endereço:</label>
+			        <input class="form-control" value="<%out.print(painel.getEndereco());%>" name="rua" type="text" id="rua"/>
+			    </div>
+	        	<div class="form-group col-md-3">
+			        <label>Bairro:</label>
+			        <input class="form-control" value="<%out.print(painel.getBairro());%>" name="bairro" type="text" id="bairro"/>
+			    </div>
+	        	<div class="form-group col-md-3">
+			        <label>Cidade:</label>
+			        <input class="form-control" value="<%out.print(painel.getCidade());%>" name="cidade" type="text" id="cidade"/>
+			    </div>
+	        	<div class="form-group col-md-1">
+			        <label>Estado:</label>
+			        <input class="form-control" value="<%out.print(painel.getUf());%>" name="uf" type="text" id="uf"/>
+			    </div>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
 				<div class="form-group col-md-3">
 					<label for="profissao">Profissão:</label> <input type="text"
 						class="form-control" value="<%out.print(painel.getProfissao());%>"
@@ -221,5 +160,8 @@
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 		crossorigin="anonymous"></script>
+	<!-- Gestor script -->
+	<script type="text/javascript" src="js/gestor.js"></script>
+	<script type="text/javascript" src="js/cep.js"></script>
 </body>
 </html>
