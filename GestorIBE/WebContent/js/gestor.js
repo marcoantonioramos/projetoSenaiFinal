@@ -28,14 +28,14 @@ function dadosForm() {
 	dados += "&telefone="+document.getElementById("telefone").value; 
 	dados += "&email="+document.getElementById("email").value; 
 	dados += "&cep="+document.getElementById("cep").value; 
-	dados += "&endereco="+document.getElementById("endereco").value;
-	dados += "&bairro="+document.getElementById("bairro").value; 
+	dados += "&endereco="+document.getElementById("rua").value;
+	/*dados += "&bairro="+document.getElementById("bairro").value; 
 	dados += "&cidade="+document.getElementById("cidade").value; 
 	dados += "&uf="+document.getElementById("uf").value; 
 	dados += "&profissao="+document.getElementById("profissao").value; 
 	dados += "&escolaridade="+document.getElementById("escolaridade").value; 
 	dados += "&estadoCivil="+document.getElementById("estadoCivil").value;
-	dados += "&conjuge="+document.getElementById("conjuge").value;
+	dados += "&conjuge="+document.getElementById("conjuge").value;*/
 	 
 	return dados;
 }

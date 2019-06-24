@@ -16,7 +16,6 @@
 	<%
 		// meu java rolar
 		Painel painel = new Painel();
-
 		if (request.getParameter("codigo") != null) {
 			int cod = Integer.parseInt(request.getParameter("codigo"));
 			painel = painel.getPainel(cod);

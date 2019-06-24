@@ -23,12 +23,12 @@ public class ServletPainel extends HttpServlet {
 		
 		obj.setCodigo(Integer.parseInt(request.getParameter("codigo")));
 		obj.setNome(request.getParameter("nome"));
-//		obj.setNascimento(request.getParameter("nascimento"));
-//		obj.setSexo(request.getParameter("sexo"));
-//		obj.setTelefone(request.getParameter("telefone"));
-//		obj.setEmail(request.getParameter("email"));
-//		obj.setCep(request.getParameter("cep"));		
-//		obj.setEndereco(request.getParameter("endereco"));
+		obj.setNascimento(request.getParameter("nascimento"));
+		obj.setSexo(request.getParameter("sexo"));
+		obj.setTelefone(request.getParameter("telefone"));
+		obj.setEmail(request.getParameter("email"));
+		obj.setCep(request.getParameter("cep"));		
+		obj.setEndereco(request.getParameter("endereco"));
 //		obj.setBairro(request.getParameter("bairro"));
 //		obj.setCidade(request.getParameter("cidade"));
 //		obj.setUf(request.getParameter("uf"));
