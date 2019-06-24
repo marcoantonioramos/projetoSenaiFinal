@@ -275,7 +275,7 @@ public class Painel {
 			while (rs.next()) {
 				Painel p = new Painel();
 				// o que esta entre aspas "nome_da_coluna_no_banco"
-				p.setCodigo(Integer.parseInt(rs.getString("codigo")));
+				p.setCodigo(rs.getInt("codigo"));
 				p.setNome(rs.getString("nome"));
 				p.setNascimento(rs.getString("nascimento"));
 				p.setSexo(rs.getString("sexo"));
@@ -311,7 +311,7 @@ public class Painel {
 			Painel p = new Painel();
 			while (rs.next()) {
 				// o que esta entre aspas "nome_da_coluna_no_banco"
-				p.setCodigo(Integer.parseInt(rs.getString("codigo")));
+				p.setCodigo(rs.getInt("codigo"));
 				p.setNome(rs.getString("nome"));
 				p.setNascimento(rs.getString("nascimento"));
 				p.setSexo(rs.getString("sexo"));
