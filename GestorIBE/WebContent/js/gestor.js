@@ -23,21 +23,20 @@ function dadosForm() {
 	var dados = "";
 	dados += "codigo=" + document.getElementById("codigo").value;
 	dados += "&nome=" + document.getElementById("nome").value;
-	/*
-	 * dados += "&nascimento="+document.getElementById("nascimento").value;
-	 * dados += "&sexo="+document.getElementById("sexo").value; dados +=
-	 * "&telefone="+document.getElementById("telefone").value; dados +=
-	 * "&email="+document.getElementById("email").value; dados +=
-	 * "&cep="+document.getElementById("cep").value; dados +=
-	 * "&endereco="+document.getElementById("endereco").value; dados +=
-	 * "&bairro="+document.getElementById("bairro").value; dados +=
-	 * "&cidade="+document.getElementById("cidade").value; dados +=
-	 * "&uf="+document.getElementById("uf").value; dados +=
-	 * "&profissao="+document.getElementById("profissao").value; dados +=
-	 * "&escolaridade="+document.getElementById("escolaridade").value; dados +=
-	 * "&estadoCivil="+document.getElementById("estadoCivil").value; dados +=
-	 * "&conjuge="+document.getElementById("conjuge").value;
-	 */
+	dados += "&nascimento="+document.getElementById("nascimento").value;
+	dados += "&sexo="+document.getElementById("sexo").value; 
+	dados += "&telefone="+document.getElementById("telefone").value; 
+	dados += "&email="+document.getElementById("email").value; 
+	dados += "&cep="+document.getElementById("cep").value; 
+	dados += "&endereco="+document.getElementById("endereco").value;
+	dados += "&bairro="+document.getElementById("bairro").value; 
+	dados += "&cidade="+document.getElementById("cidade").value; 
+	dados += "&uf="+document.getElementById("uf").value; 
+	dados += "&profissao="+document.getElementById("profissao").value; 
+	dados += "&escolaridade="+document.getElementById("escolaridade").value; 
+	dados += "&estadoCivil="+document.getElementById("estadoCivil").value;
+	dados += "&conjuge="+document.getElementById("conjuge").value;
+	 
 	return dados;
 }
 

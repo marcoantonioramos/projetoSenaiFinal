@@ -29,9 +29,7 @@
 			<img class="logo" alt="IBE" src="img/logo.png"><br> <a
 				href="gerenciarPainel.jsp" class="btn btn-info" role="button">Gravar</a>
 			<a href="painel.jsp" class="btn btn-info" role="button">Pesquisar</a>
-
 		</div>
-
 	</div>
 
 	<div class="container">
@@ -41,11 +39,13 @@
 			<div id="msg"></div>
 			<div class="form-row">
 				<div class="form-group col-md-3">
-					<label for="codigo">Código:</label> <input type="number" onkeyup="validaCodigo();"
+					<label for="codigo">Código:</label> <input type="number"
 						class="form-control" id="codigo"
-						value="<%out.print(painel.getCodigo());%>" placeholder="Insira um código"
+						value="<%out.print(painel.getCodigo());%>"
+						placeholder="Insira um código" onkeyup="validaCodigo();"
 						name="codigo">
 				</div>
+
 				<div class="form-group col-md-6">
 					<label for="nome">Nome:</label> <input type="text"
 						class="form-control" id="nome"
@@ -61,7 +61,7 @@
 				</div>
 
 				<div class="form-group col-md-3">
-					<label for="sexo">Sexo:</label> <select class="form-control"
+					<label for="sexo">Sexo:</label> <select class="form-control" name="sexo"
 						id="sexo">
 						<option>Masculino</option>
 						<option>Feminino</option>
@@ -76,73 +76,74 @@
 				<div class="form-group col-md-3">
 					<label for="telefone">Telefone:</label> <input type="text"
 						class="form-control" value="<%out.print(painel.getTelefone());%>"
-						id="telefone" placeholder="telefone">
+						id="telefone" name="telefone" placeholder="Telefone">
 				</div>
-
-
 
 				<div class="form-group col-md-3">
 					<label for="email">E-mail:</label> <input type="text"
 						class="form-control" value="<%out.print(painel.getEmail());%>"
-						id="email" placeholder="E-mail">
+						id="email" name="email" placeholder="E-mail">
 				</div>
-				
-				
-				
+
 				<div class="form-group col-md-3">
-					<label>Cep:</label>
-	        		<input class="form-control" value="<%out.print(painel.getCep());%>" name="cep" type="number" id="cep" placeholder="Insira apenas os números" onblur="pesquisacep(this.value);"/>
-	    		</div>
-	        	<div class="form-group col-md-5">
-			        <label>Endereço:</label>
-			        <input class="form-control" value="<%out.print(painel.getEndereco());%>" name="rua" type="text" id="rua"/>
-			    </div>
-	        	<div class="form-group col-md-3">
-			        <label>Bairro:</label>
-			        <input class="form-control" value="<%out.print(painel.getBairro());%>" name="bairro" type="text" id="bairro"/>
-			    </div>
-	        	<div class="form-group col-md-3">
-			        <label>Cidade:</label>
-			        <input class="form-control" value="<%out.print(painel.getCidade());%>" name="cidade" type="text" id="cidade"/>
-			    </div>
-	        	<div class="form-group col-md-1">
-			        <label>Estado:</label>
-			        <input class="form-control" value="<%out.print(painel.getUf());%>" name="uf" type="text" id="uf"/>
-			    </div>
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
+					<label>Cep:</label> <input class="form-control"
+						value="<%out.print(painel.getCep());%>" name="cep" type="number"
+						id="cep" placeholder="Insira apenas os números"
+						onkeyup="pesquisacep(this.value);" />
+				</div>
+
+				<div class="form-group col-md-5">
+					<label>Endereço:</label> <input class="form-control"
+						value="<%out.print(painel.getEndereco());%>" name="rua" placeholder="Rua, Avenida, Alameda ou Praça"
+						type="text" id="rua" />
+				</div>
+
+				<div class="form-group col-md-3">
+					<label>Bairro:</label> <input class="form-control"
+						value="<%out.print(painel.getBairro());%>" name="bairro" placeholder="Bairro"
+						type="text" id="bairro" />
+				</div>
+
+				<div class="form-group col-md-3">
+					<label>Cidade:</label> <input class="form-control"
+						value="<%out.print(painel.getCidade());%>" name="cidade" placeholder="Cidade"
+						type="text" id="cidade" />
+				</div>
+
+				<div class="form-group col-md-1">
+					<label>Estado:</label> <input class="form-control text-uppercase"
+						value="<%out.print(painel.getUf());%>" name="uf" type="text" placeholder="UF"
+						id="uf" />
+				</div>
+
 				<div class="form-group col-md-3">
 					<label for="profissao">Profissão:</label> <input type="text"
 						class="form-control" value="<%out.print(painel.getProfissao());%>"
 						id="profissao" placeholder="Profissão">
 				</div>
+
 				<div class="form-group col-md-3">
 					<label for="escolaridade">Escolaridade:</label> <input type="text"
 						class="form-control"
 						value="<%out.print(painel.getEscolaridade());%>" id="escolaridade"
 						placeholder="Escolaridade">
 				</div>
+
 				<div class="form-group col-md-3">
 					<label for="estadoCivil">Estado Civil:</label> <input type="text"
 						class="form-control"
 						value="<%out.print(painel.getEstadoCivil());%>" id="estadoCivil"
 						placeholder="Estado Civil">
 				</div>
+
 				<div class="form-group col-md-3">
 					<label for="conjuge">Cônjuge:</label> <input type="text"
 						class="form-control" value="<%out.print(painel.getConjuge());%>"
 						id="conjuge" placeholder="Cônjuge">
 				</div>
+
 			</div>
+			
 			<button type="button" class="btn btn-secondary" onclick="novo()">Novo</button>
 			<button type="button" class="btn btn-primary" onclick="gravar()">Gravar</button>
 			<button type="button" class="btn btn-danger" onclick="apagar()">Apagar</button>
