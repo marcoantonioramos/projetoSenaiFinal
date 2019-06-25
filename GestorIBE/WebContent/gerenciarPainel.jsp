@@ -73,7 +73,7 @@
 				</div>
 
 				<div class="form-group col-md-3">
-					<label for="telefone">Telefone:</label> <input type="text"
+					<label for="telefone">Telefone:</label> <input type="number"
 						class="form-control" value="<%out.print(painel.getTelefone());%>"
 						id="telefone" name="telefone" placeholder="Telefone">
 				</div>
@@ -145,6 +145,7 @@
 			
 			<button type="button" class="btn btn-secondary" onclick="novo()">Novo</button>
 			<button type="button" class="btn btn-primary" onclick="gravar()">Gravar</button>
+			<button type="button" class="btn btn-primary" onclick="apagarAtualizar()">Atualizar</button>
 			<button type="button" class="btn btn-danger" onclick="apagar()">Apagar</button>
 		</form>
 	</div>

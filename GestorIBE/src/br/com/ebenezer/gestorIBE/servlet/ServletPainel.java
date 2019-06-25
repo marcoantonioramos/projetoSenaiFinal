@@ -29,13 +29,13 @@ public class ServletPainel extends HttpServlet {
 		obj.setEmail(request.getParameter("email"));
 		obj.setCep(request.getParameter("cep"));		
 		obj.setEndereco(request.getParameter("endereco"));
-//		obj.setBairro(request.getParameter("bairro"));
-//		obj.setCidade(request.getParameter("cidade"));
-//		obj.setUf(request.getParameter("uf"));
-//		obj.setProfissao(request.getParameter("profissao"));
-//		obj.setEscolaridade(request.getParameter("escolaridade"));
-//		obj.setEstadoCivil(request.getParameter("estadoCivil"));
-//		obj.setConjuge(request.getParameter("conjuge"));
+		obj.setBairro(request.getParameter("bairro"));
+		obj.setCidade(request.getParameter("cidade"));
+		obj.setUf(request.getParameter("uf"));
+		obj.setProfissao(request.getParameter("profissao"));
+		obj.setEscolaridade(request.getParameter("escolaridade"));
+		obj.setEstadoCivil(request.getParameter("estadoCivil"));
+		obj.setConjuge(request.getParameter("conjuge"));
 		
 		System.out.println(obj.getCodigo()+" "+obj.getNome()+" "+obj.getNascimento()+" "+obj.getSexo()+" "+obj.getTelefone()+" "+obj.getEmail()
 		+" "+obj.getCep()+" "+obj.getEndereco()+" "+obj.getBairro()+" "+obj.getCidade()+" "+obj.getUf()+" "+obj.getProfissao()

@@ -2,6 +2,9 @@
 function limpaCodigo() {
 	if(document.getElementById("codigo").value == 0) {
 		document.getElementById("codigo").value = "";
+		document.getElementById("codigo").readOnly = false;
+	} else {
+		document.getElementById("codigo").readOnly = true;
 	}
 }
 
@@ -29,13 +32,13 @@ function dadosForm() {
 	dados += "&email="+document.getElementById("email").value; 
 	dados += "&cep="+document.getElementById("cep").value; 
 	dados += "&endereco="+document.getElementById("rua").value;
-	/*dados += "&bairro="+document.getElementById("bairro").value; 
+	dados += "&bairro="+document.getElementById("bairro").value; 
 	dados += "&cidade="+document.getElementById("cidade").value; 
 	dados += "&uf="+document.getElementById("uf").value; 
 	dados += "&profissao="+document.getElementById("profissao").value; 
 	dados += "&escolaridade="+document.getElementById("escolaridade").value; 
 	dados += "&estadoCivil="+document.getElementById("estadoCivil").value;
-	dados += "&conjuge="+document.getElementById("conjuge").value;*/
+	dados += "&conjuge="+document.getElementById("conjuge").value;
 	 
 	return dados;
 }
@@ -56,7 +59,7 @@ function gravar() {
 		}
 	};
 	if (document.getElementById("codigo").value > 0) {
-		xhttp.open("GET", "servletPainel?" + dadosForm(), true);
+		xhttp.open("POST", "servletPainel?" + dadosForm(), true);
 		xhttp.send();
 	} else {
 		document.getElementById("codigo").className = "form-control border border-danger"
@@ -83,10 +86,29 @@ function apagar() {
 				}
 			}
 		};
-		xhttp.open("GET", "servletPainel?" + dadosForm() + "&apagar", true);
+		xhttp.open("POST", "servletPainel?" + dadosForm() + "&apagar", true);
 		xhttp.send();
 	}
 }
+
+//Apaga registro do BD para reinserção e atualização
+function apagarAtualizar() {
+
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				var msg = xhttp.responseText;
+
+			}
+		};
+		xhttp.open("POST", "servletPainel?" + dadosForm() + "&apagar", true);
+		xhttp.send();
+		
+		window.setTimeout('gravar()', 1);
+		
+	}
+
+
 
 //Limpa inputs e prepara formulário para nova inserção
 function novo() {
