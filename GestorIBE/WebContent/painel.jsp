@@ -28,11 +28,13 @@
 		<thead>
 			<tr>
 				<th width="20%">Código</th>
+				<input type="number" class="form-control col-md-3" placeholder="Insira um código para pesquisar">
 				<th width="20%">Nome</th>
 				<th width="10%">Endereço</th>
 				<th width="10%">Telefone</th>
 				<th width="10%">E-mail</th>
 				<th width="10%">Sexo</th>
+				<th width="10%"></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -40,17 +42,18 @@
 			<%
 				Painel painel = new Painel();
 				for (Painel p : painel.getLista()) {
-					out.print("<tr onclick='prepararEditar("+p.getCodigo()+")'>");
+					out.print("<tr >");
 					out.print("<td>" + p.getCodigo() + "</td>");
 					out.print("<td>" + p.getNome() + "</td>");
 					out.print("<td>" + p.getEndereco() + "</td>");
 					out.print("<td>" + p.getTelefone() + "</td>");
 					out.print("<td>" + p.getEmail() + "</td>");
 					out.print("<td>" + p.getSexo() + "</td>");
+					out.print("<td align='right' onclick='prepararEditar("+p.getCodigo()+")'><img src='img/editar.png'></td>");
 					out.print("</tr>");
 				}
 			%>
-			
+		
 		</tbody>
 	</table>
 </div>

@@ -51,11 +51,11 @@ public class ServletPainel extends HttpServlet {
 //		obj.getPainel(cod);
 		if(obj.getPainel(cod)!=null) {
 			obj.setCodigo(cod);
-			if(request.getParameter("apagar")==null) {
-				sucesso = obj.atualizar();
-			}else {
+			//if(request.getParameter("apagar")==null) {
+			//	sucesso = obj.atualizar();
+			//}else {
 				sucesso = obj.apagar();
-			}
+			//}
 			
 		}else {
 			sucesso = obj.inserir();

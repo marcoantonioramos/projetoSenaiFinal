@@ -41,8 +41,7 @@
 					<label for="codigo">Código:</label> <input type="number"
 						class="form-control" id="codigo"
 						value="<%out.print(painel.getCodigo());%>"
-						placeholder="Insira um código" onkeyup="validaCodigo();"
-						name="codigo">
+						placeholder="Insira um código" name="codigo" onkeyup="validaCodigo()">
 				</div>
 
 				<div class="form-group col-md-6">
@@ -143,10 +142,10 @@
 
 			</div>
 			
-			<button type="button" class="btn btn-secondary" onclick="novo()">Novo</button>
-			<button type="button" class="btn btn-primary" onclick="gravar()">Gravar</button>
-			<button type="button" class="btn btn-primary" onclick="apagarAtualizar()">Atualizar</button>
-			<button type="button" class="btn btn-danger" onclick="apagar()">Apagar</button>
+			<button type="button" class="btn btn-secondary" id="btnNovo" onclick="novo()">Novo</button>
+			<button type="button" class="btn btn-primary"  id="btnGravar" onclick="gravar()">Gravar</button>
+			<button type="button" class="btn btn-primary" id="btnAtualizar" onclick="apagarAtualizar()">Atualizar</button>
+			<button type="button" class="btn btn-danger" id="btnApagar" onclick="apagar()">Apagar</button>
 		</form>
 	</div>
 	<!-- Script do bootstrape -->

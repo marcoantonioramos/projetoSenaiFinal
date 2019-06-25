@@ -1,10 +1,20 @@
-//Limpa valor do input Código ao iniciar
+//Limpa valor do input Código ao iniciar e atva/desativa botões
 function limpaCodigo() {
 	if(document.getElementById("codigo").value == 0) {
 		document.getElementById("codigo").value = "";
 		document.getElementById("codigo").readOnly = false;
 	} else {
 		document.getElementById("codigo").readOnly = true;
+		document.getElementById("btnAtualizar").disable = true;
+	}
+	if((document.getElementById("codigo").value < 0) || (document.getElementById("codigo").value == "")) {
+		document.getElementById("btnAtualizar").disabled = "disabled";
+		document.getElementById("btnApagar").disabled = "disabled";
+	} else {
+		document.getElementById("btnNovo").disabled = "disabled";
+		document.getElementById("btnGravar").disabled = "disabled";
+		document.getElementById("btnAtualizar").disabled = "";
+		document.getElementById("btnApagar").disabled = "";
 	}
 }
 
@@ -104,7 +114,7 @@ function apagarAtualizar() {
 		xhttp.open("POST", "servletPainel?" + dadosForm() + "&apagar", true);
 		xhttp.send();
 		
-		window.setTimeout('gravar()', 1);
+		window.setTimeout('gravar()', 100);
 		
 	}
 
@@ -112,7 +122,7 @@ function apagarAtualizar() {
 
 //Limpa inputs e prepara formulário para nova inserção
 function novo() {
-	window.location.replace('gerenciarPainel.jsp');
+	window.location.replace('gerenciarPainel.jsp');	
 }
 
 //Editar registro

@@ -186,19 +186,21 @@ public class Painel {
 
 // copiamos o código inserir pra reaproveitar o codigo e
 // fazer o método atualizar
-	public boolean atualizar() {
+	/*public boolean atualizar() {
 
 		Connection conexao = new ConectarJDBC().getConectar();
 
 		if (conexao != null) {
-			String sql = "update painel set	codigo = ?, nome = ?, nascimento = ?, sexo = ?, telefone = ?, email = ?,"
+			String sql = "update painel set	nome = ?, nascimento = ?, sexo = ?, telefone = ?, email = ?,"
 					+ "cep = ?, endereco = ?, bairro = ? , cidade = ? , uf = ?, profissao = ?, escolaridade = ?, "
 					+ "estado_civil = ?, conjuge = ? where cod = ? ";
+			
+			//codigo = ?, 
 			
 		
 			try {
 				PreparedStatement prepararSQL = conexao.prepareStatement(sql);
-				prepararSQL.setInt(1, codigo);
+				//prepararSQL.setInt(1, codigo);
 				prepararSQL.setString(2, nome);
 				prepararSQL.setString(3, nascimento);
 				prepararSQL.setString(4, sexo);
@@ -224,7 +226,7 @@ public class Painel {
 
 		}
 		return false;
-	}
+	}*/
 
 	public boolean inserir() {
 
