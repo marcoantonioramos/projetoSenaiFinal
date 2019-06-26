@@ -26,7 +26,7 @@
 	<div class="container">
 		<div class="banner">
 			<img class="logo" alt="IBE" src="img/logo.png"><br> <a
-				href="gerenciarPainel.jsp" class="btn btn-info" role="button">Gravar</a>
+				href="gerenciarPainel.jsp" class="btn btn-info" role="button">Cadastrar</a>
 			<a href="painel.jsp" class="btn btn-info" role="button">Pesquisar</a>
 		</div>
 	</div>
@@ -141,11 +141,24 @@
 				</div>
 
 			</div>
-			
-			<button type="button" class="btn btn-secondary" id="btnNovo" onclick="novo()">Novo</button>
+		
 			<button type="button" class="btn btn-primary"  id="btnGravar" onclick="gravar()">Gravar</button>
-			<button type="button" class="btn btn-primary" id="btnAtualizar" onclick="apagarAtualizar()">Atualizar</button>
-			<button type="button" class="btn btn-danger" id="btnApagar" onclick="apagar()">Apagar</button>
+			<button type="button" class="btn btn-warning" id="btnAtualizar" onclick="apagarAtualizar()">Atualizar</button>
+			<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirm" id="btnApagar">Apagar</button>
+
+			<div class="modal fade" id="confirm" role="dialog">
+  				<div class="modal-dialog modal-md">
+    				<div class="modal-content">
+      					<div class="modal-body">
+            				<p>Realmente deseja apagar esse registro?!?</p>
+      					</div>
+      				<div class="modal-footer">
+        				<a href="gerenciarPainel.jsp" onclick="apagar();" type="button" class="btn btn-danger" id="delete">Apagar</a>
+            			<button type="button" data-dismiss="modal" class="btn btn-default">Cancelar</button>
+      			</div>
+   		 			</div>
+				</div>
+			</div>		
 		</form>
 	</div>
 	<!-- Script do bootstrape -->

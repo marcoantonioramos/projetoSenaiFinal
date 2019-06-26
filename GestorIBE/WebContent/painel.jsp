@@ -16,7 +16,7 @@
 		<div class="banner">
 			<img class="logo" alt="IBE" src="img/logo.png"><br>
 			
-			<a href="gerenciarPainel.jsp" class="btn btn-info" role="button">Gravar</a>
+			<a href="gerenciarPainel.jsp" class="btn btn-info" role="button">Cadastrar</a>
 			<a href="painel.jsp" class="btn btn-info" role="button">Pesquisar</a>
 			
 		</div>

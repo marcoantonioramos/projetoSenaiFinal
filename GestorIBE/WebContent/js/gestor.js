@@ -11,7 +11,6 @@ function limpaCodigo() {
 		document.getElementById("btnAtualizar").disabled = "disabled";
 		document.getElementById("btnApagar").disabled = "disabled";
 	} else {
-		document.getElementById("btnNovo").disabled = "disabled";
 		document.getElementById("btnGravar").disabled = "disabled";
 		document.getElementById("btnAtualizar").disabled = "";
 		document.getElementById("btnApagar").disabled = "";
@@ -71,6 +70,7 @@ function gravar() {
 	if (document.getElementById("codigo").value > 0) {
 		xhttp.open("POST", "servletPainel?" + dadosForm(), true);
 		xhttp.send();
+		window.setTimeout('novo()', 3000);
 	} else {
 		document.getElementById("codigo").className = "form-control border border-danger"
 		document.getElementById("msg").className = "alert alert-danger";
@@ -80,7 +80,7 @@ function gravar() {
 
 //Apaga registro do BD
 function apagar() {
-	if (confirm("Realmente deseja apagar esse registro??")) {
+	//if (confirm("Realmente deseja apagar esse registro??")) {
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
@@ -99,7 +99,7 @@ function apagar() {
 		xhttp.open("POST", "servletPainel?" + dadosForm() + "&apagar", true);
 		xhttp.send();
 	}
-}
+//}
 
 //Apaga registro do BD para reinserção e atualização
 function apagarAtualizar() {
@@ -118,11 +118,9 @@ function apagarAtualizar() {
 		
 	}
 
-
-
-//Limpa inputs e prepara formulário para nova inserção
+//Limpa formulário para gravar novo registro
 function novo() {
-	window.location.replace('gerenciarPainel.jsp');	
+	window.location.replace('gerenciarPainel.jsp');
 }
 
 //Editar registro
