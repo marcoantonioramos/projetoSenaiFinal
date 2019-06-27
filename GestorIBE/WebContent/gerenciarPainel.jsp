@@ -59,7 +59,7 @@
 				</div>
 
 				<div class="form-group col-md-3">
-					<label for="sexo">Sexo:</label> <select class="form-control" name="sexo"
+					<label for="sexo">Sexo:</label> <select class="form-control" name="sexo" placeholder="Escolha uma opção"
 						id="sexo">
 						<option>Masculino</option>
 						<option>Feminino</option>
@@ -74,7 +74,7 @@
 				<div class="form-group col-md-3">
 					<label for="telefone">Telefone:</label> <input type="number"
 						class="form-control" value="<%out.print(painel.getTelefone());%>"
-						id="telefone" name="telefone" placeholder="Telefone">
+						id="telefone" name="telefone" placeholder="Insira apenas os números">
 				</div>
 
 				<div class="form-group col-md-3">

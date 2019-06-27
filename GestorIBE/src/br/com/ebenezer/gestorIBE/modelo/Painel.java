@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -272,7 +273,8 @@ public class Painel {
 	public List<Painel> getLista() {
 		try {
 			Connection conexao = new ConectarJDBC().getConectar();
-			PreparedStatement ps = conexao.prepareStatement("select * from painel");
+			String cod = "";
+			PreparedStatement ps = conexao.prepareStatement("select * from painel WHERE CAST( codigo AS CHAR ) LIKE  '"+cod+"%'");
 			ResultSet rs = ps.executeQuery();
 
 			List<Painel> lsPainel = new ArrayList<Painel>();
