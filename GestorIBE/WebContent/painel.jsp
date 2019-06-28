@@ -1,71 +1,95 @@
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="br.com.ebenezer.gestorIBE.modelo.Painel"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+	pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <title>GestorIBE - Sistema de cadastro</title>
+
+<!-- Datatables JS -->
+
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script
+	src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script
+	src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+<!-- Datatables CSS -->
+
 <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/estilo.css">
+	href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+<link rel="stylesheet"
+	href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="css/estilo.css">
 
 </head>
+
 <body>
-	<div class="container">
+	<script type="text/javascript">
+		$(document)
+				.ready(
+						function() {
+							$('#tabela')
+									.DataTable(
+											{
+												"language" : {
+													"url" : "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
+												}
+											});
+						});
+	</script>
+	<div class="container-fluid">
 		<div class="banner">
-			<img class="logo" alt="IBE" src="img/logo.png"><br>
-			
-			<a href="gerenciarPainel.jsp" class="btn btn-info" role="button">Cadastrar</a>
+			<img class="logo" alt="IBE" src="img/logo.png"><br> <a
+				href="gerenciarPainel.jsp" class="btn btn-info" role="button">Cadastrar</a>
 			<a href="painel.jsp" class="btn btn-info" role="button">Pesquisar</a>
-			
+
 		</div>
-		
+
 	</div>
 	<div class="espaco"></div>
 	<div class="container">
-	<table class="table table-striped">
-		<thead>
-			<tr id="trCodPesquisa">
-				<th width="20%">Código</th>
-				<input type="number" id=codPesquisa class="form-control col-md-2" placeholder="Por código">
-				<a href="painel.jsp" class="btn btn-info" role="button">Pesquisar</a>
-				<th width="20%">Nome</th>
-				<th width="20%">Data de Nascimento</th>
-				<th width="20%">Bairro</th>
-				<th width="10%">Telefone</th>
-				<th width="10%">E-mail</th>
-				<th width="0%"></th>
-			</tr>
-		</thead>
-		<tbody>
-		
-			<%
-				Painel painel = new Painel();
-			
-				for (Painel p : painel.getLista()) {
-					out.print("<tr >");
-					out.print("<td>" + p.getCodigo() + "</td>");
-					out.print("<td>" + p.getNome() + "</td>");
-					out.print("<td>" + p.getNascimento() + "</td>");
-					out.print("<td>" + p.getBairro() + "</td>");
-					out.print("<td>" + p.getTelefone() + "</td>");
-					out.print("<td>" + p.getEmail() + "</td>");	
-					out.print("<td align='right' onclick='prepararEditar("+p.getCodigo()+")'><img src='img/editar.png'></td>");
-					out.print("</tr>");
-				}
-			%>
-		
-		</tbody>
-	</table>
-</div>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<!-- Script do bootstrape -->
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+		<table id="tabela" class="table table-striped table-bordered"
+			style="width: 100%">
+			<thead>
+				<tr>
+					<th width="20%">Código</th>
+					<th width="20%">Nome</th>
+					<th width="20%">Data de Nascimento</th>
+					<th width="20%">Bairro</th>
+					<th width="10%">Telefone</th>
+					<th width="10%">E-mail</th>
+					<th width="0%"></th>
+				</tr>
+			</thead>
+			<tbody>
+
+				<%
+					Painel painel = new Painel();
+
+					for (Painel p : painel.getLista()) {
+						out.print("<tr >");
+						out.print("<td>" + p.getCodigo() + "</td>");
+						out.print("<td>" + p.getNome() + "</td>");
+						out.print("<td id='tdNascimento'>" + p.getNascimento() + "</td>");
+						out.print("<td>" + p.getBairro() + "</td>");
+						out.print("<td>" + p.getTelefone() + "</td>");
+						out.print("<td>" + p.getEmail() + "</td>");
+						out.print("<td align='right' onclick='prepararEditar(" + p.getCodigo()
+								+ ")'><img src='img/editar.png'></td>");
+						out.print("</tr>");
+					}
+				%>
+
+			</tbody>
+		</table>
+
+	</div>
 	<!-- Gestor script -->
-	<script type="text/javascript" src="js/gestor.js"></script>
+<script src="js/gestor.js"></script>
+
 </body>
 </html>

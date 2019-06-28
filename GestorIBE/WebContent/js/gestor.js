@@ -1,5 +1,6 @@
 //Limpa valor do input Código ao iniciar e atva/desativa botões
 function limpaCodigo() {
+		document.getElementById("codigo").focus();
 	if(document.getElementById("codigo").value == 0) {
 		document.getElementById("codigo").value = "";
 		document.getElementById("codigo").readOnly = false;
@@ -130,13 +131,3 @@ function prepararEditar(codigo) {
 		window.location.replace('gerenciarPainel.jsp?codigo=' + codigo);
 	}
 }
-
-//Pesquisa registros
-$(document).ready(function(){
-	  $("#codPesquisa").on("keyup", function() {
-	    var value = $(this).val().toLowerCase();
-	    $("#trCodPesquisa").filter(function() {
-	      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-	    });
-	  });
-	});
