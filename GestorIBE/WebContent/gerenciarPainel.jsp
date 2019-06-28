@@ -35,7 +35,7 @@
 
 		<form class="formulario" id="formulario">
 
-			<div id="msg"></div>
+			<div id="msg" class="form-group col-md-12"></div>
 			<div class="form-row">
 				<div class="form-group col-md-3">
 					<label for="codigo">Código:</label> <input type="number"
@@ -78,7 +78,7 @@
 				</div>
 
 				<div class="form-group col-md-3">
-					<label for="email">E-mail:</label> <input type="text"
+					<label for="email">E-mail:</label> <input type="email"
 						class="form-control" value="<%out.print(painel.getEmail());%>"
 						id="email" name="email" placeholder="E-mail">
 				</div>
@@ -159,6 +159,7 @@
    		 			</div>
 				</div>
 			</div>		
+
 		</form>
 	</div>
 	<!-- Script do bootstrape -->

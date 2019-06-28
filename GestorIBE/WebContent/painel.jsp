@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="br.com.ebenezer.gestorIBE.modelo.Painel"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
@@ -26,9 +27,10 @@
 	<div class="container">
 	<table class="table table-striped">
 		<thead>
-			<tr>
+			<tr id="trCodPesquisa">
 				<th width="20%">Código</th>
-				<input type="number" class="form-control col-md-2" placeholder="Pesquisa por código">
+				<input type="number" id=codPesquisa class="form-control col-md-2" placeholder="Por código">
+				<a href="painel.jsp" class="btn btn-info" role="button">Pesquisar</a>
 				<th width="20%">Nome</th>
 				<th width="20%">Data de Nascimento</th>
 				<th width="20%">Bairro</th>
@@ -41,6 +43,7 @@
 		
 			<%
 				Painel painel = new Painel();
+			
 				for (Painel p : painel.getLista()) {
 					out.print("<tr >");
 					out.print("<td>" + p.getCodigo() + "</td>");
@@ -57,6 +60,7 @@
 		</tbody>
 	</table>
 </div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <!-- Script do bootstrape -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

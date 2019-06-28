@@ -80,12 +80,12 @@ function gravar() {
 
 //Apaga registro do BD
 function apagar() {
-	//if (confirm("Realmente deseja apagar esse registro??")) {
+	
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
 				var msg = xhttp.responseText;
-
+				
 				if (msg == "Gravado com sucesso") {
 					document.getElementById("msg").className = "alert alert-info";
 					document.getElementById("msg").innerHTML = "Informação apagada";
@@ -99,7 +99,7 @@ function apagar() {
 		xhttp.open("POST", "servletPainel?" + dadosForm() + "&apagar", true);
 		xhttp.send();
 	}
-//}
+
 
 //Apaga registro do BD para reinserção e atualização
 function apagarAtualizar() {
@@ -130,3 +130,13 @@ function prepararEditar(codigo) {
 		window.location.replace('gerenciarPainel.jsp?codigo=' + codigo);
 	}
 }
+
+//Pesquisa registros
+$(document).ready(function(){
+	  $("#codPesquisa").on("keyup", function() {
+	    var value = $(this).val().toLowerCase();
+	    $("#trCodPesquisa").filter(function() {
+	      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+	    });
+	  });
+	});
