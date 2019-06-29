@@ -3,7 +3,7 @@ use gestor_ibe;
 create table painel(
 codigo int primary key,
 nome varchar(50),
-nascimento date,
+nascimento varchar(10),
 sexo varchar(9),
 telefone varchar(15),
 email varchar(50),

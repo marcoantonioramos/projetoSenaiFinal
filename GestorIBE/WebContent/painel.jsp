@@ -1,4 +1,3 @@
-<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="br.com.ebenezer.gestorIBE.modelo.Painel"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
@@ -26,19 +25,9 @@
 
 </head>
 
-<body>
+<body onload="dataTables()">
 	<script type="text/javascript">
-		$(document)
-				.ready(
-						function() {
-							$('#tabela')
-									.DataTable(
-											{
-												"language" : {
-													"url" : "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
-												}
-											});
-						});
+		
 	</script>
 	<div class="container-fluid">
 		<div class="banner">

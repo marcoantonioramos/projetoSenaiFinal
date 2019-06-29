@@ -59,8 +59,9 @@
 				</div>
 
 				<div class="form-group col-md-3">
-					<label for="sexo">Sexo:</label> <select class="form-control" name="sexo" placeholder="Escolha uma opção"
+					<label for="sexo">Sexo:</label> <select class="form-control" name="sexo" 
 						id="sexo">
+						<option value="" disabled selected>Selecione...</option>
 						<option>Masculino</option>
 						<option>Feminino</option>
 					</select>
@@ -80,7 +81,7 @@
 				<div class="form-group col-md-3">
 					<label for="email">E-mail:</label> <input type="email"
 						class="form-control" value="<%out.print(painel.getEmail());%>"
-						id="email" name="email" placeholder="E-mail">
+						id="email" name="email" placeholder="email@dominio.com">
 				</div>
 
 				<div class="form-group col-md-3">
@@ -119,33 +120,54 @@
 						class="form-control" value="<%out.print(painel.getProfissao());%>"
 						id="profissao" placeholder="Profissão">
 				</div>
-
+				
 				<div class="form-group col-md-3">
-					<label for="escolaridade">Escolaridade:</label> <input type="text"
-						class="form-control"
-						value="<%out.print(painel.getEscolaridade());%>" id="escolaridade"
-						placeholder="Escolaridade">
+					<label for="escolaridade">Escolaridade:</label> <select class="form-control" name="escolaridade" 
+						id="escolaridade">
+						<option value="" disabled selected>Selecione...</option>
+						<option>Fundamental</option>
+						<option>Médio</option>
+						<option>Superior</option>
+					</select>
+
+					<script>
+					document.getElementById("escolaridade").value = 
+						"<%out.print(painel.getEscolaridade());%>"
+					</script>
 				</div>
 
 				<div class="form-group col-md-3">
-					<label for="estadoCivil">Estado Civil:</label> <input type="text"
-						class="form-control"
-						value="<%out.print(painel.getEstadoCivil());%>" id="estadoCivil"
-						placeholder="Estado Civil">
+					<label for="estadoCivil">Estado Civil:</label> <select onchange="habilitaConjuge()" class="form-control" name="estadoCivil" 
+						id="estadoCivil">
+						<option value="" disabled selected>Selecione...</option>
+						<option>Solteiro(a)</option>
+						<option>Casado(a)</option>
+						<option>União Estável</option>
+						<option>Separado</option>
+						<option>Divorciado</option>
+						<option>Viúvo</option>
+					</select>
+
+					<script>
+					document.getElementById("estadoCivil").value = 
+						"<%out.print(painel.getEstadoCivil());%>"
+					</script>
 				</div>
 
 				<div class="form-group col-md-3">
-					<label for="conjuge">Cônjuge:</label> <input type="text"
+					<label for="conjuge">Cônjuge:</label> <input disabled="disabled" type="text"
 						class="form-control" value="<%out.print(painel.getConjuge());%>"
-						id="conjuge" placeholder="Cônjuge">
+						id="conjuge" placeholder="Nome">
 				</div>
 
 			</div>
-		
-			<button type="button" class="btn btn-primary"  id="btnGravar" onclick="gravar()">Gravar</button>
-			<button type="button" class="btn btn-warning" id="btnAtualizar" onclick="apagarAtualizar()">Atualizar</button>
-			<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirm" id="btnApagar">Apagar</button>
-
+		<div align="right">
+			<div class="btn-group">
+				<button type="button" class="btn btn-primary"  id="btnGravar" onclick="gravar()">Gravar</button>
+				<button type="button" class="btn btn-warning" id="btnAtualizar" onclick="apagarAtualizar()">Atualizar</button>
+				<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirm" id="btnApagar">Apagar</button>
+			</div>
+		</div>
 			<div class="modal fade" id="confirm" role="dialog">
   				<div class="modal-dialog modal-md">
     				<div class="modal-content">
