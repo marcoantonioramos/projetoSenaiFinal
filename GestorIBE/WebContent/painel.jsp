@@ -1,3 +1,5 @@
+<%@page import="br.com.ebenezer.gestorIBE.modelo.ConectarJDBC"%>
+<%@page import="java.sql.Connection"%>
 <%@page import="br.com.ebenezer.gestorIBE.modelo.Painel"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
@@ -25,19 +27,21 @@
 
 </head>
 
-<body onload="dataTables()">
-	<script type="text/javascript">
-		
-	</script>
+<body class="corpo" onload="dataTables()">
+
 	<div class="container-fluid">
 		<div class="banner">
-			<img class="logo" alt="IBE" src="img/logo.png"><br> <a
-				href="gerenciarPainel.jsp" class="btn btn-info" role="button">Cadastrar</a>
+			<img class="logo" alt="IBE" src="img/logo.png"><br>
+			<nav class="nav justify-content-center">
+			<a href="gerenciarPainel.jsp" class="btn btn-info" role="button">Cadastrar</a>
 			<a href="painel.jsp" class="btn btn-info" role="button">Pesquisar</a>
-
+			</nav>
+			<div class="divLogout">
+			<a href="index.html"><img class="imgLogout" src="img/logout.png" alt="logout"></a>
+			</div>
 		</div>
-
 	</div>
+	
 	<div class="espaco"></div>
 	<div class="container">
 
@@ -57,8 +61,11 @@
 			<tbody>
 
 				<%
+				
+				
+				
 					Painel painel = new Painel();
-
+				
 					for (Painel p : painel.getLista()) {
 						out.print("<tr >");
 						out.print("<td>" + p.getCodigo() + "</td>");

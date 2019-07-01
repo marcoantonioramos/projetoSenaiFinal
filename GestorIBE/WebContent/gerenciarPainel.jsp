@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="css/estilo.css">
 
 </head>
-<body onload="limpaCodigo()">
+<body class="corpo" onload="limpaCodigo()">
 
 	<%
 		// meu java rolar
@@ -25,17 +25,23 @@
 
 	<div class="container-fluid">
 		<div class="banner">
-			<img class="logo" alt="IBE" src="img/logo.png"><br> <a
-				href="gerenciarPainel.jsp" class="btn btn-info" role="button">Cadastrar</a>
+			<img class="logo" alt="IBE" src="img/logo.png"><br> 
+			<nav class="nav justify-content-center">
+			<a href="gerenciarPainel.jsp" class="btn btn-info" role="button">Cadastrar</a>
 			<a href="painel.jsp" class="btn btn-info" role="button">Pesquisar</a>
+			</nav>
+			<div class="divLogout">
+			<a href="index.html"><img class="imgLogout" src="img/logout.png" alt="logout"></a>
+			</div>		
 		</div>
 	</div>
 
 	<div class="container">
-
+	
 		<form class="formulario" id="formulario">
 
 			<div id="msg" class="form-group col-md-12"></div>
+						
 			<div class="form-row">
 				<div class="form-group col-md-3">
 					<label for="codigo">Código:</label> <input type="number"
@@ -59,9 +65,9 @@
 				</div>
 
 				<div class="form-group col-md-3">
-					<label for="sexo">Sexo:</label> <select class="form-control" name="sexo" 
+					<label for="sexo">Sexo:</label> <select required="required" class="form-control" name="sexo" 
 						id="sexo">
-						<option value="" disabled selected>Selecione...</option>
+						<option value="" disabled selected">Selecione...</option>
 						<option>Masculino</option>
 						<option>Feminino</option>
 					</select>
@@ -122,7 +128,7 @@
 				</div>
 				
 				<div class="form-group col-md-3">
-					<label for="escolaridade">Escolaridade:</label> <select class="form-control" name="escolaridade" 
+					<label for="escolaridade">Escolaridade:</label> <select required="required" class="form-control" name="escolaridade" 
 						id="escolaridade">
 						<option value="" disabled selected>Selecione...</option>
 						<option>Fundamental</option>
@@ -137,7 +143,7 @@
 				</div>
 
 				<div class="form-group col-md-3">
-					<label for="estadoCivil">Estado Civil:</label> <select onchange="habilitaConjuge()" class="form-control" name="estadoCivil" 
+					<label for="estadoCivil">Estado Civil:</label> <select required="required" onchange="habilitaConjuge()" class="form-control" name="estadoCivil" 
 						id="estadoCivil">
 						<option value="" disabled selected>Selecione...</option>
 						<option>Solteiro(a)</option>

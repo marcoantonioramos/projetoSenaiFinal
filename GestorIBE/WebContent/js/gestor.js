@@ -39,6 +39,7 @@ function habilitaConjuge() {
 		document.getElementById("conjuge").disabled = "";
 	} else {
 		document.getElementById("conjuge").disabled = "disabled";
+		document.getElementById("conjuge").value = "";
 	}
 }
 
