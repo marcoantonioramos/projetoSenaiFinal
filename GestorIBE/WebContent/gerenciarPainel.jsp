@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="css/estilo.css">
 
 </head>
-<body class="corpo" onload="limpaCodigo()">
+<body class="corpo" onload="limpaCodigo(), mascaras()">
 
 	<%
 		// meu java rolar
@@ -59,7 +59,7 @@
 
 				<div class="form-group col-md-3">
 					<label for="nascimento">Data de Nascimento:</label> <input
-						type="date" class="form-control" id="nascimento"
+						type="text" class="form-control" id="nascimento"
 						value="<%out.print(painel.getNascimento());%>"
 						placeholder="data de Nascimento" name="nascimento">
 				</div>
@@ -79,7 +79,7 @@
 				</div>
 
 				<div class="form-group col-md-3">
-					<label for="telefone">Telefone:</label> <input type="number"
+					<label for="telefone">Telefone:</label> <input type="text"
 						class="form-control" value="<%out.print(painel.getTelefone());%>"
 						id="telefone" name="telefone" placeholder="Insira apenas os números">
 				</div>
@@ -192,10 +192,10 @@
 	</div>
 	<!-- Script do bootstrape -->
 	<script src="js/jquery-3.3.1.slim.min.js"></script>
-	<script
-		src="js/popper.min.js"></script>
-	<script
-		src="js/bootstrap.min.js"></script>
+	<script	src="js/popper.min.js"></script>
+	<script	src="js/bootstrap.min.js"></script>
+	<!-- Script JMask -->
+	<script type="text/javascript" src="js/jquery.mask.js"></script>
 	<!-- Gestor script -->
 	<script type="text/javascript" src="js/gestor.js"></script>
 	<script type="text/javascript" src="js/cep.js"></script>
