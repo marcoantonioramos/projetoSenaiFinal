@@ -7,7 +7,7 @@
 <meta charset="utf-8">
 <title>GestorIBE - Sistema de cadastro</title>
 <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+	href="css/bootstrap.min.css" />
 <link rel="stylesheet" href="css/estilo.css">
 
 </head>
@@ -67,7 +67,7 @@
 				<div class="form-group col-md-3">
 					<label for="sexo">Sexo:</label> <select required="required" class="form-control" name="sexo" 
 						id="sexo">
-						<option value="" disabled selected">Selecione...</option>
+						<option value="" disabled selected>Selecione...</option>
 						<option>Masculino</option>
 						<option>Feminino</option>
 					</select>
@@ -191,11 +191,11 @@
 		</form>
 	</div>
 	<!-- Script do bootstrape -->
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script src="js/jquery-3.3.1.slim.min.js"></script>
 	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+		src="js/popper.min.js"></script>
 	<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		src="js/bootstrap.min.js"></script>
 	<!-- Gestor script -->
 	<script type="text/javascript" src="js/gestor.js"></script>
 	<script type="text/javascript" src="js/cep.js"></script>
