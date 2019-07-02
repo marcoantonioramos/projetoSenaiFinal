@@ -31,26 +31,22 @@
 
 	<div class="container-fluid">
 		<div class="banner">
-			<img class="logo" alt="IBE" src="img/logo.png"><br>
+			<img class="logo" alt="IBE" src="img/logo.png"><br> 
 			<nav class="nav justify-content-center">
 			<a href="gerenciarPainel.jsp" class="btn btn-info" role="button">Cadastrar</a>
 			<a href="painel.jsp" class="btn btn-info" role="button">Pesquisar</a>
+		
+				<div class="btn-group">
+	  				<button type="button" class="btnOpcoes btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Opções</button>
+	  				<div class="dropdown-menu">
+	    				<a class="dropdown-item" href="cadastroLogin.jsp">Cadastrar usuário</a>
+	    				<a class="dropdown-item" href="index.jsp">Sair</a>
+	   				</div>
+	   			</div>	
 			</nav>
 			<div class="divLogout">
 			<a href="index.jsp"><img class="imgLogout" src="img/logout.png" alt="logout"></a>
-	
-		<p align="center">
-		<%
-		
-		ConectarJDBC conexao = new ConectarJDBC();
-		conexao.getConectar();
-		conexao.getStatus();
-		
-		%>
-		</p>
-			
-			</div>
-	
+			</div>		
 		</div>
 	</div>
 	

@@ -25,6 +25,12 @@
 		
 }
 
+.statusDB {
+	text-align: right;
+	margin-top: 5%;
+	margin-bottom: -10%;
+}
+
 .corpo {
 	background-color: #fffffa; 
 }
@@ -45,7 +51,7 @@
 
 .btnOpcoes {
 	width: 100%;
-	height: 75%;
+	height: 66%;
 }
 
 .formulario, .formLogin {
@@ -74,7 +80,7 @@
 }
 
 .espaco {
-	margin-top: 9%;
+	margin-top: 6%;
 }
 
 .dbStatus {

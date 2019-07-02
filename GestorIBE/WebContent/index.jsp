@@ -9,15 +9,7 @@
 	<title>GestorIBE - Sistema de cadastro</title>
 </head>
 <body class="corpo">
-
-	<span>
-	<%
-	ConectarJDBC conexao = new ConectarJDBC();
-	conexao.getConectar();
-	conexao.getStatus();
-	%>
-	</span>
-			
+	
 	<div class="container">
 		<form class="formLogin border border-dark" id="formlogin">
 			<img class="imgLogin" alt="logo" src="img/logoIDE.png">
@@ -35,8 +27,19 @@
 							placeholder="Senha" name="senha">
 					</div>
 						
-						<a class="btn btn-secondary btnLogin" href="gerenciarPainel.jsp" role="button">LogIn</a>			
+						<a class="btn btn-secondary btnLogin" href="gerenciarPainel.jsp" role="button">LogIn</a>		
 				</div>	
+				<div class="statusDB">
+				<%
+				ConectarJDBC conexao = new ConectarJDBC();
+				conexao.getConectar();
+				if(conexao.getStatus()=="Conectado"){
+				out.print("<img src='img/dbOK.png'>");	
+				} else {
+				out.print("<img src='img/dbError.png'>");
+				}
+				%>
+				</div>
 			</form>
 	</div>	
 

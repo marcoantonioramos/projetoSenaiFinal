@@ -20,12 +20,10 @@ public class ConectarJDBC {
 		try {
 			setStatus("Conectado");
 			Class.forName("com.mysql.jdbc.Driver");
-			System.out.println(status);
 			return DriverManager.getConnection("jdbc:mysql://localhost/gestor_ibe", "root", "");
 			
 		} catch (Exception e) {
 			setStatus("Desconectado");
-			System.out.println(status);
 			return null;
 		}
 		

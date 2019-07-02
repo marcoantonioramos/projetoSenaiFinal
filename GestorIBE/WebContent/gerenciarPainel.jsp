@@ -34,6 +34,7 @@
 	  				<button type="button" class="btnOpcoes btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Opções</button>
 	  				<div class="dropdown-menu">
 	    				<a class="dropdown-item" href="cadastroLogin.jsp">Cadastrar usuário</a>
+	    				<a class="dropdown-item" href="index.jsp">Sair</a>
 	   				</div>
 	   			</div>	
 			</nav>
