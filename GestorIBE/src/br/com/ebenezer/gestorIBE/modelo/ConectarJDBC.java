@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 
 public class ConectarJDBC {
 	
-	private String status;
+	private String status = "";
 	
 	public String getStatus() {
 		return status;
@@ -14,7 +14,6 @@ public class ConectarJDBC {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-
 
 	public Connection getConectar() {
 		
@@ -32,6 +31,5 @@ public class ConectarJDBC {
 		
 		
 	}
-
 
 }

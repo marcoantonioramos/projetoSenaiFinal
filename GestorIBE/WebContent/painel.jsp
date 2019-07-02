@@ -37,8 +37,20 @@
 			<a href="painel.jsp" class="btn btn-info" role="button">Pesquisar</a>
 			</nav>
 			<div class="divLogout">
-			<a href="index.html"><img class="imgLogout" src="img/logout.png" alt="logout"></a>
+			<a href="index.jsp"><img class="imgLogout" src="img/logout.png" alt="logout"></a>
+	
+		<p align="center">
+		<%
+		
+		ConectarJDBC conexao = new ConectarJDBC();
+		conexao.getConectar();
+		conexao.getStatus();
+		
+		%>
+		</p>
+			
 			</div>
+	
 		</div>
 	</div>
 	

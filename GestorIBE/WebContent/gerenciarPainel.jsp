@@ -29,9 +29,16 @@
 			<nav class="nav justify-content-center">
 			<a href="gerenciarPainel.jsp" class="btn btn-info" role="button">Cadastrar</a>
 			<a href="painel.jsp" class="btn btn-info" role="button">Pesquisar</a>
+		
+				<div class="btn-group">
+	  				<button type="button" class="btnOpcoes btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Opções</button>
+	  				<div class="dropdown-menu">
+	    				<a class="dropdown-item" href="cadastroLogin.jsp">Cadastrar usuário</a>
+	   				</div>
+	   			</div>	
 			</nav>
 			<div class="divLogout">
-			<a href="index.html"><img class="imgLogout" src="img/logout.png" alt="logout"></a>
+			<a href="index.jsp"><img class="imgLogout" src="img/logout.png" alt="logout"></a>
 			</div>		
 		</div>
 	</div>
@@ -59,7 +66,7 @@
 
 				<div class="form-group col-md-3">
 					<label for="nascimento">Data de Nascimento:</label> <input
-						type="text" class="form-control" id="nascimento"
+						type="date" class="form-control" id="nascimento"
 						value="<%out.print(painel.getNascimento());%>"
 						placeholder="data de Nascimento" name="nascimento">
 				</div>
