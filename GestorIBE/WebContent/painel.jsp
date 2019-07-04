@@ -11,18 +11,18 @@
 
 <!-- Datatables JS -->
 
-<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="js/jquery-3.3.1.js"></script>
 <script
-	src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+	src="js/jquery.dataTables.min.js"></script>
 <script
-	src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+	src="js/dataTables.bootstrap4.min.js"></script>
 
 <!-- Datatables CSS -->
 
 <link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+	href="css/bootstrap.css">
 <link rel="stylesheet"
-	href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+	href="css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" href="css/estilo.css">
 
 </head>
@@ -31,14 +31,20 @@
 
 	<div class="container-fluid">
 		<div class="banner">
-			<img class="logo" alt="IBE" src="img/logo.png"><br>
+			<img class="logo" alt="IBE" src="img/logo.png"><br> 
 			<nav class="nav justify-content-center">
 			<a href="gerenciarPainel.jsp" class="btn btn-info" role="button">Cadastrar</a>
 			<a href="painel.jsp" class="btn btn-info" role="button">Pesquisar</a>
+		
+				<div class="btn-group">
+	  				<button type="button" class="btnOpcoes btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Opções</button>
+	  				<div class="dropdown-menu">
+	    				<a class="dropdown-item" href="cadastroLogin.jsp">Cadastrar usuário</a>
+	    				<a class="dropdown-item" href="index.jsp">Sair</a>
+	   				</div>
+	   			</div>	
 			</nav>
-			<div class="divLogout">
-			<a href="index.jsp"><img class="imgLogout" src="img/logout.png" alt="logout"></a>
-			</div>
+					
 		</div>
 	</div>
 	
@@ -61,6 +67,18 @@
 			<tbody>
 
 				<%
+				
+				
+				// validação por session
+				// uma session serve com variável glogal do sistema
+				// e que pode ser acessada por outros arquivos
+				String login = (String) session.getAttribute("login");
+				
+				// teste se o login esta realmente preenchido
+				if(login == null){
+					out.print("Não logado");
+					response.sendRedirect("index.jsp");
+				}
 				
 				
 				

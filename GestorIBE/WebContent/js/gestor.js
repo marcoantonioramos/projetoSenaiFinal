@@ -135,6 +135,11 @@ function novo() {
 	window.location.replace('gerenciarPainel.jsp');
 }
 
+//Faz logoff e fecha a sessão
+function sair(){
+	window.location.replace('index.jsp?sair');
+}
+
 // Editar registro
 function prepararEditar(codigo) {
 
@@ -152,4 +157,12 @@ function dataTables() {
 			}
 		});
 	});
+}
+
+// Insere máscaras nos inputs
+function mascaras() {
+	$(document).ready(function() {
+		$("#nascimento").mask("00/00/0000")
+		$("#telefone").mask("(00) 00000-0000")
+	})
 }

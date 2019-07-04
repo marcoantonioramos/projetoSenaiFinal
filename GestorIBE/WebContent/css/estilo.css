@@ -31,6 +31,12 @@
 	margin-bottom: -10%;
 }
 
+.statusLogin {
+	text-align: center;
+	color: red;
+	margin-top: 3%;
+}
+
 .corpo {
 	background-color: #fffffa; 
 }
@@ -76,7 +82,7 @@
 }
 
 .btnLogin {
-	margin-top: 10%;
+	margin-top: 7%;
 }
 
 .espaco {

@@ -272,8 +272,7 @@ public class Painel {
 	public List<Painel> getLista() {
 		try {
 			Connection conexao = new ConectarJDBC().getConectar();
-			String cod = "";
-			PreparedStatement ps = conexao.prepareStatement("select * from painel WHERE CAST( codigo AS CHAR ) LIKE  '"+cod+"%'");
+			PreparedStatement ps = conexao.prepareStatement("select * from painel");
 			ResultSet rs = ps.executeQuery();
 
 			List<Painel> lsPainel = new ArrayList<Painel>();

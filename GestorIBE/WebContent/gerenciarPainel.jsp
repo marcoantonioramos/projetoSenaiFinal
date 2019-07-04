@@ -7,13 +7,26 @@
 <meta charset="utf-8">
 <title>GestorIBE - Sistema de cadastro</title>
 <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+	href="css/bootstrap.min.css" />
 <link rel="stylesheet" href="css/estilo.css">
 
 </head>
-<body class="corpo" onload="limpaCodigo()">
+<body class="corpo" onload="limpaCodigo(), mascaras()">
 
 	<%
+	// validação por session
+	// uma session serve com variável glogal do sistema
+	// e que pode ser acessada por outros arquivos
+	String login = (String) session.getAttribute("login");
+	
+	// teste se o login esta realmente preenchido
+	if(login == null){
+		out.print("Não logado");
+		response.sendRedirect("index.jsp");
+	}
+	
+
+	
 		// meu java rolar
 		Painel painel = new Painel();
 		if (request.getParameter("codigo") != null) {
@@ -29,10 +42,16 @@
 			<nav class="nav justify-content-center">
 			<a href="gerenciarPainel.jsp" class="btn btn-info" role="button">Cadastrar</a>
 			<a href="painel.jsp" class="btn btn-info" role="button">Pesquisar</a>
+		
+				<div class="btn-group">
+	  				<button type="button" class="btnOpcoes btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Opções</button>
+	  				<div class="dropdown-menu">
+	    				<a class="dropdown-item" href="cadastroLogin.jsp">Cadastrar usuário</a>
+	    				<a class="dropdown-item" href="index.jsp">Sair</a>
+	   				</div>
+	   			</div>	
 			</nav>
-			<div class="divLogout">
-			<a href="index.jsp"><img class="imgLogout" src="img/logout.png" alt="logout"></a>
-			</div>		
+				
 		</div>
 	</div>
 
@@ -67,7 +86,7 @@
 				<div class="form-group col-md-3">
 					<label for="sexo">Sexo:</label> <select required="required" class="form-control" name="sexo" 
 						id="sexo">
-						<option value="" disabled selected">Selecione...</option>
+						<option value="" disabled selected>Selecione...</option>
 						<option>Masculino</option>
 						<option>Feminino</option>
 					</select>
@@ -79,7 +98,7 @@
 				</div>
 
 				<div class="form-group col-md-3">
-					<label for="telefone">Telefone:</label> <input type="number"
+					<label for="telefone">Telefone:</label> <input type="text"
 						class="form-control" value="<%out.print(painel.getTelefone());%>"
 						id="telefone" name="telefone" placeholder="Insira apenas os números">
 				</div>
@@ -191,11 +210,11 @@
 		</form>
 	</div>
 	<!-- Script do bootstrape -->
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-	<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script src="js/jquery-3.3.1.slim.min.js"></script>
+	<script	src="js/popper.min.js"></script>
+	<script	src="js/bootstrap.min.js"></script>
+	<!-- Script JMask -->
+	<script type="text/javascript" src="js/jquery.mask.js"></script>
 	<!-- Gestor script -->
 	<script type="text/javascript" src="js/gestor.js"></script>
 	<script type="text/javascript" src="js/cep.js"></script>
