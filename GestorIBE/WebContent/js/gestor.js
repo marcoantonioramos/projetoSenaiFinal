@@ -65,16 +65,6 @@ function dadosForm() {
 	return dados;
 }
 
-//Captura os dados inseridos no formulário de Login
-function dadosForm() {
-	var dados = "";
-	dados += "codigo=" + document.getElementById("codigo").value;
-	dados += "&nome=" + document.getElementById("nome").value;
-	
-	return dados;
-}
-
-
 // Grava registro no BD
 function gravar() {
 
@@ -99,25 +89,6 @@ function gravar() {
 		document.getElementById("msg").className = "alert alert-danger";
 		document.getElementById("msg").innerHTML = "Insira um código válido.";
 	}
-}
-
-//Grava registro no BD - Tabela Login
-function gravar() {
-
-	var xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			var msg = xhttp.responseText;
-			document.getElementById("msg").innerHTML = msg;
-			if (msg == "Gravado com sucesso") {
-				document.getElementById("msg").className = "alert alert-info";
-			} else {
-				document.getElementById("msg").className = "alert alert-danger";
-			}
-		}
-	};
-		xhttp.open("POST", "servletLogin?" + dadosLogin(), true);
-		xhttp.send();
 }
 
 // Apaga registro do BD
@@ -182,11 +153,3 @@ function dataTables() {
 		});
 	});
 }
-
-// Insere máscaras nos inputs
-function mascaras() {
-	$(document).ready(function() {
-		$("#telefone").mask("(00)00000-0000")
-	})
-}
-	
