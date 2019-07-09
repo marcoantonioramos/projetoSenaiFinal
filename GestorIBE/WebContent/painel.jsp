@@ -1,3 +1,5 @@
+<%@page import="java.util.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="br.com.ebenezer.gestorIBE.modelo.ConectarJDBC"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="br.com.ebenezer.gestorIBE.modelo.Painel"%>
@@ -80,10 +82,8 @@
 					response.sendRedirect("index.jsp");
 				}
 				
-				
-				
-					Painel painel = new Painel();
-				
+				Painel painel = new Painel();
+									
 					for (Painel p : painel.getLista()) {
 						out.print("<tr >");
 						out.print("<td>" + p.getCodigo() + "</td>");

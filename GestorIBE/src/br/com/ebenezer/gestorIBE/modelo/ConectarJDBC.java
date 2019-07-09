@@ -26,8 +26,7 @@ public class ConectarJDBC {
 			setStatus("Desconectado");
 			return null;
 		}
-		
-		
+				
 	}
 
 }
